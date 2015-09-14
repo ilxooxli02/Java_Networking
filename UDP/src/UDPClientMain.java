@@ -9,7 +9,7 @@ public class UDPClientMain {
         String message = "";
         Scanner sc = new Scanner(System.in);
         //input message
-        System.out.println("º¸³¾ ¸Þ¼¼Áö > ");
+        System.out.println("ë³´ë‚¼ ë©”ì„¸ì§€ > ");
         message=sc.nextLine();
         //make packet
         DatagramPacket dp = new DatagramPacket(message.getBytes(), message.getBytes().length, InetAddress.getByName("localhost"), 1226);
