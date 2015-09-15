@@ -9,22 +9,29 @@ import java.net.SocketException;
 public class UDPServerMain {
 
     public static void main(String[] args) throws IOException {
-
-        byte[] data = new byte[1024];
-
         //make socket
-        DatagramSocket ds = new DatagramSocket(1226);
-        //make packet
-        DatagramPacket dp = new DatagramPacket(data, data.length);
+        DatagramSocket ds = new DatagramSocket(1229);
 
-        //receive
         System.out.println("UDP Server standby...");
-        ds.receive(dp);
 
         //print message
-        String address = dp.getAddress().toString();
-        String message = new String(dp.getData());
-        System.out.println(address+"> "+message);
+        String address;
+        String message = "first";
 
+        while(true){
+            byte[] data = new byte[1024];
+
+            //make packet
+            DatagramPacket dp = new DatagramPacket(data, data.length);
+            ds.receive(dp);
+
+            //receive
+            address = dp.getAddress().toString();
+            message = new String(dp.getData()).trim();
+
+            System.out.println(address+"> "+message);
+
+            if(message.equalsIgnoreCase("BYE")) break;
+        }
     }
 }

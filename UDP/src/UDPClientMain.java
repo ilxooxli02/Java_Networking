@@ -12,7 +12,7 @@ public class UDPClientMain {
         System.out.println("보낼 메세지 > ");
         message=sc.nextLine();
         //make packet
-        DatagramPacket dp = new DatagramPacket(message.getBytes(), message.getBytes().length, InetAddress.getByName("localhost"), 1226);
+        DatagramPacket dp = new DatagramPacket(message.getBytes(), message.getBytes().length, InetAddress.getByName("localhost"), 1229);
 
         //make socket
         DatagramSocket ds = new DatagramSocket();
