@@ -11,7 +11,7 @@ public class TCPClientMain {
         //input message
         String message = "";
         Scanner sc = new Scanner(System.in);
-        System.out.println("º¸³¾ ¸Þ¼¼Áö > ");
+        System.out.println("ë³´ë‚¼ ë©”ì„¸ì§€ > ");
         message=sc.nextLine();
 
         //make socket
