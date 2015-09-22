@@ -11,18 +11,23 @@ public class TCPServerMain {
 
     public static void main(String[] args) throws IOException {
         System.out.println("TCP Server standby...");
-
-        //make socket (accept)
         ServerSocket serverSocket = new ServerSocket(1019);
-        Socket socket = serverSocket.accept();
+        Socket socket;
 
-        //make reader
-        BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        while(true){
+        //make socket (accept)
 
-        //read
-        String message = reader.readLine();
+        socket = serverSocket.accept();
 
-        //print message
-        System.out.println(socket.getInetAddress()+"> "+message);
+            //make reader
+            BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+            //read
+            String message = reader.readLine();
+
+            //print message
+            System.out.println(socket.getInetAddress()+"> "+message);
+            if(message.equalsIgnoreCase("BYE")) break;
+        }
     }
 }

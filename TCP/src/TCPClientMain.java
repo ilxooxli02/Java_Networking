@@ -8,19 +8,22 @@ import java.util.Scanner;
  */
 public class TCPClientMain {
     public static void main(String[] args) throws IOException {
-        //input message
-        String message = "";
-        Scanner sc = new Scanner(System.in);
-        System.out.println("보낼 메세지 > ");
-        message=sc.nextLine();
+        while(true) {
+            //input message
+            String message = "";
+            Scanner sc = new Scanner(System.in);
+            System.out.println("보낼 메세지 > ");
+            message = sc.nextLine();
 
-        //make socket
-        Socket socket = new Socket("localhost", 1019);
+            //make socket
+            Socket socket = new Socket("localhost", 1019);
 
-        //make writer
-        PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
+            //make writer
+            PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
 
-        //write
-        writer.println(message);
+            //write
+            writer.println(message);
+            if(message.equalsIgnoreCase("BYE")) break;
+        }
     }
 }
